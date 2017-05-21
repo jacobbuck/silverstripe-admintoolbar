@@ -1,4 +1,6 @@
 .AdminToolbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: -webkit-sticky;
   position: sticky;
@@ -31,13 +33,17 @@
 }
 
 .AdminToolbarNav {
-	display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .AdminToolbarNav--primary {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
   flex: 1 1 auto;
 }
 
