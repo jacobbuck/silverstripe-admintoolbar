@@ -22,6 +22,18 @@ AdminToolbar:
   ForegroundColor: '#333333'
 ```
 
+## Requirements
+
+- Silverstripe 3+
+
+## Installation
+
+The recommended way to install is through Composer:
+
+```
+composer require jacobbuck/silverstripe-flags
+```
+
 ## Credits
 
 Entypo pictograms by Daniel Bruce — [www.entypo.com](http://www.entypo.com)
