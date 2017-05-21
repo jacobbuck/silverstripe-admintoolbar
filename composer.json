@@ -2,13 +2,12 @@
   "name": "jacobbuck/silverstripe-admintoolbar",
   "description": "Adds a toolbar to the top of your SilverStripe website front-end with quick links to CMS functionality.",
   "type": "silverstripe-module",
+  "homepage": "http://github.com/jacobbuck/silverstripe-admintoolbar",
   "keywords": ["silverstripe", "cms", "admin", "toolbar"],
-  "authors": [
-    {
-      "name": "Jacob Buck",
-      "email": "jacob_buck@bnz.co.nz"
-    }
-  ],
+  "authors": [{"name": "Jacob Buck", "email": "jacob_buck@bnz.co.nz"}],
+  "support": {
+    "issues": "http://github.com/jacobbuck/silverstripe-admintoolbar/issues"
+  },
   "require": {
     "silverstripe/cms": "~3.1",
     "silverstripe/framework": "~3.1"
