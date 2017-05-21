@@ -11,6 +11,7 @@ class AdminToolbar extends Extension
         if (
             !Permission::check('CMS_ACCESS_CMSMain') ||
             !$this->owner ||
+            $this->owner->getRequest()->getVar('CMSPreview') === '1' ||
             (defined('SHOW_ADMIN_TOOLBAR') && SHOW_ADMIN_TOOLBAR == false)
         ) {
             return;
