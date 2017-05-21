@@ -10,6 +10,6 @@
 
 <div class="AdminToolbar">
   <% include AdminToolbarHide %>
-  <% include AdminToolbarNav Nav=$PrimaryNav Variant="primary" %>
-  <% include AdminToolbarNav Nav=$SecondaryNav Variant="secondary" %>
+  <% include AdminToolbarNav Nav=$PrimaryNav, Variant="primary" %>
+  <% include AdminToolbarNav Nav=$SecondaryNav, Variant="secondary" %>
 </div>
