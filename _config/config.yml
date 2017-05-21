@@ -1,3 +1,3 @@
-SiteTree:
+ContentController:
   extensions:
     - AdminToolbar
