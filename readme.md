@@ -2,7 +2,7 @@
 
 Adds a toolbar to the top of your SilverStripe website front-end with quick links to CMS functionality.
 
-![Screenshot](screenshot.png)
+![Screenshot](docs/images/screenshot.png)
 
 ## Usage
 
