@@ -31,7 +31,7 @@ AdminToolbar:
 The recommended way to install is through Composer:
 
 ```
-composer require jacobbuck/silverstripe-flags
+composer require jacobbuck/silverstripe-admintoolbar
 ```
 
 ## Credits
