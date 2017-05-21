@@ -44,13 +44,13 @@ class AdminToolbar extends Extension
         $nav->push(ArrayData::create(array(
             'Label' => SiteConfig::current_site_config()->Title,
             'Link' => $baseURL,
-            'Icon' => ADMINTOOLBAR_DIR . '/images/home.svg#Home'
+            'Icon' => $baseURL . ADMINTOOLBAR_DIR . '/images/home.svg#Home'
         )));
 
         $nav->push(ArrayData::create(array(
             'Label' => _t('AdminToolbar.Admin', 'Admin'),
             'Link' => "{$baseURL}admin",
-            'Icon' => ADMINTOOLBAR_DIR . '/images/cog.svg#Cog'
+            'Icon' => $baseURL . ADMINTOOLBAR_DIR . '/images/cog.svg#Cog'
         )));
 
         // Show draft/published switcher if user can view draft content
@@ -59,15 +59,15 @@ class AdminToolbar extends Extension
                 $nav->push(ArrayData::create(array(
                     'Label' => _t('AdminToolbar.Draft', 'Draft'),
                     'Title' => _t('AdminToolbar.SwitchToPublishedSite', 'Switch to published site'),
-                    'Link' => "{$this->owner->Link}?stage=Live",
-                    'Icon' => ADMINTOOLBAR_DIR . '/images/eye-with-line.svg#Eye_with_line'
+                    'Link' => "{$this->owner->Link()}?stage=Live",
+                    'Icon' => $baseURL . ADMINTOOLBAR_DIR . '/images/eye-with-line.svg#Eye_with_line'
                 )));
             } elseif (Versioned::current_stage() === 'Live') {
                 $nav->push(ArrayData::create(array(
                     'Label' => _t('AdminToolbar.Published', 'Published'),
                     'Title' => _t('AdminToolbar.SwitchToDraftSite', 'Switch to draft site'),
-                    'Link' => "{$this->owner->Link}?stage=Stage",
-                    'Icon' => ADMINTOOLBAR_DIR . '/images/eye.svg#Eye'
+                    'Link' => "{$this->owner->Link()}?stage=Stage",
+                    'Icon' => $baseURL . ADMINTOOLBAR_DIR . '/images/eye.svg#Eye'
                 )));
             }
         }
@@ -86,7 +86,7 @@ class AdminToolbar extends Extension
                 'Label' => _t('AdminToolbar.EditThing', 'Edit {thing}',
                     array('thing' => $niceClassName)),
                 'Link' =>"{$baseURL}{$this->owner->data()->CMSEditLink()}",
-                'Icon' => ADMINTOOLBAR_DIR . '/images/new-message.svg#New_message'
+                'Icon' => $baseURL . ADMINTOOLBAR_DIR . '/images/new-message.svg#New_message'
             )));
         }
 
@@ -107,13 +107,13 @@ class AdminToolbar extends Extension
             'Label' => _t('AdminToolbar.Name', 'Hi {name}',
                 array('name' => Member::currentUser()->FirstName)),
             'Link' => "{$baseURL}admin/myprofile",
-            'Icon' => ADMINTOOLBAR_DIR . '/images/user.svg#User'
+            'Icon' => $baseURL . ADMINTOOLBAR_DIR . '/images/user.svg#User'
         )));
 
         $secondaryNav->push(ArrayData::create(array(
             'Label' => _t('AdminToolbar.LogOut', 'Log out'),
             'Link' =>  "{$baseURL}Security/logout",
-            'Icon' => ADMINTOOLBAR_DIR . '/images/log-out.svg#Log_out'
+            'Icon' => $baseURL . ADMINTOOLBAR_DIR . '/images/log-out.svg#Log_out'
         )));
 
         return $secondaryNav;
