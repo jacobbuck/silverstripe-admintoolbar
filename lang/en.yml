@@ -1,0 +1,11 @@
+en:
+  AdminToolbar:
+    Admin: Admin
+    Draft: Draft
+    EditThing: 'Edit {thing}'
+    HiName: 'Hi {name}'
+    Live: Live
+    LogOut: 'Log out'
+    Published: Published
+    SwitchToDraftSite: 'Switch to draft site'
+    SwitchToPublishedSite: 'Switch to published site'
