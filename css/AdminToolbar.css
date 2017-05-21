@@ -1,8 +1,13 @@
 .AdminToolbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 9999999; /* lol */
   color: #fff;
   font-size: 1rem;
   line-height: 1.25;
   background-color: #005B94;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 30em) {
