@@ -9,7 +9,7 @@
 <% end_if %>
 
 <div class="AdminToolbar">
-  <% include AdminToolbarHide %>
   <% include AdminToolbarNav Nav=$PrimaryNav, Variant="primary" %>
   <% include AdminToolbarNav Nav=$SecondaryNav, Variant="secondary" %>
+  <% include AdminToolbarHide %>
 </div>

@@ -1,6 +1,6 @@
 <?php
 
-class AdminToolbar extends DataExtension
+class AdminToolbar extends Extension
 {
     /**
      * Return rendered AdminToolbar
@@ -11,6 +11,7 @@ class AdminToolbar extends DataExtension
         if (
             !Permission::check('CMS_ACCESS_CMSMain') ||
             !$this->owner ||
+            $this->owner->getRequest()->getVar('CMSPreview') === '1' ||
             (defined('SHOW_ADMIN_TOOLBAR') && SHOW_ADMIN_TOOLBAR == false)
         ) {
             return;
@@ -73,18 +74,18 @@ class AdminToolbar extends DataExtension
 
         // Show edit link if user can edit content
         if (
-            $this->owner->ID > 0 &&
-            $this->owner->canEdit() &&
-            $this->owner->CMSEditLink()
+            $this->owner->data()->ID > 0 &&
+            $this->owner->data()->canEdit() &&
+            $this->owner->data()->CMSEditLink()
         ) {
             // Generate friendly name. e.g. "AwesomePage" -> "Awesome Page"
             // @see FormField::name_to_label()
-            $niceClassName = preg_replace("/([a-z]+)([A-Z])/", "$1 $2", $this->owner->ClassName);
+            $niceClassName = preg_replace("/([a-z]+)([A-Z])/", "$1 $2", $this->owner->data()->ClassName);
 
             $nav->push(ArrayData::create(array(
                 'Label' => _t('AdminToolbar.EditThing', 'Edit {thing}',
                     array('thing' => $niceClassName)),
-                'Link' =>"{$baseURL}{$this->owner->CMSEditLink()}",
+                'Link' =>"{$baseURL}{$this->owner->data()->CMSEditLink()}",
                 'Icon' => ADMINTOOLBAR_DIR . '/images/new-message.svg#New_message'
             )));
         }
