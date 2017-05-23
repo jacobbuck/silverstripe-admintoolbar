@@ -1,4 +1,4 @@
-<li class="AdminToolbarNavItem">
+<li class="AdminToolbarNavItem AdminToolbarNavItem--$Name">
   <a href="$Link" class="AdminToolbarNavItem-link" title="$Title">
     <svg class="AdminToolbarNavItem-icon" role="img">
       <use xlink:href="$Icon"></use>

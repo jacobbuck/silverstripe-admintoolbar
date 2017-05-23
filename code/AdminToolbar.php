@@ -42,12 +42,14 @@ class AdminToolbar extends Extension
         $baseURL = Director::baseURL();
 
         $nav->push(ArrayData::create(array(
+            'Name' => 'home',
             'Label' => SiteConfig::current_site_config()->Title,
             'Link' => $baseURL,
             'Icon' => $baseURL . ADMINTOOLBAR_DIR . '/images/home.svg#Home'
         )));
 
         $nav->push(ArrayData::create(array(
+            'Name' => 'admin',
             'Label' => _t('AdminToolbar.Admin', 'Admin'),
             'Link' => "{$baseURL}admin",
             'Icon' => $baseURL . ADMINTOOLBAR_DIR . '/images/cog.svg#Cog'
@@ -57,6 +59,7 @@ class AdminToolbar extends Extension
         if (Permission::check('VIEW_DRAFT_CONTENT')) {
             if (Versioned::current_stage() === 'Stage') {
                 $nav->push(ArrayData::create(array(
+                    'Name' => 'switchToPublishedSite',
                     'Label' => _t('AdminToolbar.Draft', 'Draft'),
                     'Title' => _t('AdminToolbar.SwitchToPublishedSite', 'Switch to published site'),
                     'Link' => "{$this->owner->Link()}?stage=Live",
@@ -64,6 +67,7 @@ class AdminToolbar extends Extension
                 )));
             } elseif (Versioned::current_stage() === 'Live') {
                 $nav->push(ArrayData::create(array(
+                    'Name' => 'switchToDraftSite',
                     'Label' => _t('AdminToolbar.Published', 'Published'),
                     'Title' => _t('AdminToolbar.SwitchToDraftSite', 'Switch to draft site'),
                     'Link' => "{$this->owner->Link()}?stage=Stage",
@@ -83,6 +87,7 @@ class AdminToolbar extends Extension
             $niceClassName = preg_replace("/([a-z]+)([A-Z])/", "$1 $2", $this->owner->data()->ClassName);
 
             $nav->push(ArrayData::create(array(
+                'Name' => 'edit',
                 'Label' => _t('AdminToolbar.EditThing', 'Edit {thing}',
                     array('thing' => $niceClassName)),
                 'Link' =>"{$baseURL}{$this->owner->data()->CMSEditLink()}",
@@ -104,6 +109,7 @@ class AdminToolbar extends Extension
         $baseURL = Director::baseURL();
 
         $secondaryNav->push(ArrayData::create(array(
+            'Name' => 'profile',
             'Label' => _t('AdminToolbar.Name', 'Hi {name}',
                 array('name' => Member::currentUser()->FirstName)),
             'Link' => "{$baseURL}admin/myprofile",
@@ -111,6 +117,7 @@ class AdminToolbar extends Extension
         )));
 
         $secondaryNav->push(ArrayData::create(array(
+            'Name' => 'logout',
             'Label' => _t('AdminToolbar.LogOut', 'Log out'),
             'Link' =>  "{$baseURL}Security/logout",
             'Icon' => $baseURL . ADMINTOOLBAR_DIR . '/images/log-out.svg#Log_out'
